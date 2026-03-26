@@ -1,0 +1,20 @@
+[
+  {
+    "title": "Sac AI Hub — GitHub Repo",
+    "url": "https://github.com/zenpierce27/sac-ai-hub",
+    "description": "The source code for this site. Contribute here.",
+    "category": "community"
+  },
+  {
+    "title": "Anthropic Documentation",
+    "url": "https://docs.anthropic.com",
+    "description": "Official Claude API docs.",
+    "category": "learning"
+  },
+  {
+    "title": "Hugging Face",
+    "url": "https://huggingface.co",
+    "description": "Models, datasets, and community tools.",
+    "category": "tools"
+  }
+]

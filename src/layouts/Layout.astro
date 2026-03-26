@@ -1,0 +1,35 @@
+---
+const { title = 'Sac AI Hub' } = Astro.props;
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Sacramento AI Collective — community hub for local AI builders, resources, and events." />
+  <title>{title}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/sac-ai-hub/styles/global.css" />
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="/sac-ai-hub/" class="logo">SAC<span>AI</span>HUB</a>
+      <ul>
+        <li><a href="/sac-ai-hub/#members">Members</a></li>
+        <li><a href="/sac-ai-hub/#events">Events</a></li>
+        <li><a href="/sac-ai-hub/#resources">Resources</a></li>
+        <li><a href="https://github.com/zenpierce27/sac-ai-hub" target="_blank" class="btn-outline">GitHub</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <slot />
+  </main>
+  <footer>
+    <p>Built by the Sacramento AI community. <a href="https://github.com/zenpierce27/sac-ai-hub" target="_blank">Contribute on GitHub →</a></p>
+  </footer>
+</body>
+</html>
