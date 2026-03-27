@@ -305,3 +305,54 @@ footer a:hover { text-decoration: underline; }
   .hero h1 { font-size: 2.2rem; }
   .cta { flex-direction: column; align-items: flex-start; }
 }
+/* ── CHAT BANNER ── */
+.chat-banner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.chat-label {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--accent);
+  white-space: nowrap;
+}
+
+.chat-text {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+
+/* ── ANNOUNCEMENTS ── */
+.announcement-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+}
+
+.announcement {
+  background: var(--bg-card);
+  padding: 1.75rem;
+  transition: background 0.2s;
+}
+
+.announcement:hover { background: var(--bg-card-hover); }
+
+.announcement h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0.25rem 0 0.5rem;
+}
+
+.announcement p {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  margin-bottom: 0.75rem;
+}
