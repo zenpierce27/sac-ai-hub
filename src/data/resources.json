@@ -16,5 +16,11 @@
     "url": "https://huggingface.co",
     "description": "Models, datasets, and community tools.",
     "category": "tools"
+  },
+  {
+    "title": "Anthropic Skills",
+    "url": "https://github.com/anthropics/skills",
+    "description": "Open source collection of skills and capabilities for building with Claude.",
+    "category": "tools"
   }
 ]
