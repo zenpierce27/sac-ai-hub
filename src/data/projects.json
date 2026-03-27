@@ -1,0 +1,11 @@
+[
+  {
+    "name": "Sac AI Hub",
+    "description": "This site. Community hub for the Sacramento AI Collective — members, events, and resources. Open source, community maintained.",
+    "author": "Jason Pierce",
+    "github": "https://github.com/zenpierce27/sac-ai-hub",
+    "demo": "https://zenpierce27.github.io/sac-ai-hub/",
+    "tags": ["astro", "open-source", "community"],
+    "status": "live"
+  }
+]
