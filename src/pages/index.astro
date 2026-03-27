@@ -3,6 +3,8 @@ import Layout from '../layouts/Layout.astro';
 import members from '../data/members.json';
 import events from '../data/events.json';
 import resources from '../data/resources.json';
+import projects from '../data/projects.json';
+import announcements from '../data/announcements.json';
 
 function formatDate(dateStr) {
   const d = new Date(dateStr + 'T00:00:00');
@@ -15,6 +17,7 @@ today.setHours(0, 0, 0, 0);
 const sorted = [...events].sort((a, b) => new Date(a.date) - new Date(b.date));
 const upcoming = sorted.filter(e => new Date(e.date + 'T00:00:00') >= today);
 const past = sorted.filter(e => new Date(e.date + 'T00:00:00') < today).reverse();
+const sortedAnnouncements = [...announcements].sort((a, b) => new Date(b.date) - new Date(a.date));
 ---
 
 <Layout title="Sac AI Hub — Sacramento AI Collective">
@@ -29,6 +32,30 @@ const past = sorted.filter(e => new Date(e.date + 'T00:00:00') < today).reverse(
       <a href="#members" class="btn-secondary">Meet the Community</a>
     </div>
   </div>
+
+  <!-- COMMUNITY CHAT CALLOUT -->
+  <div class="chat-banner">
+    <span class="chat-label">💬 Community Chat</span>
+    <span class="chat-text">A shared Discord or Slack is coming. Stay tuned.</span>
+  </div>
+
+  <!-- ANNOUNCEMENTS -->
+  <section id="announcements">
+    <div class="section-header">
+      <h2>Announcements</h2>
+      <span>{announcements.length} posts</span>
+    </div>
+    <div class="announcement-list">
+      {sortedAnnouncements.map(a => (
+        <div class="announcement">
+          <div class="event-date">{formatDate(a.date)}</div>
+          <h3>{a.title}</h3>
+          <p>{a.excerpt}</p>
+          {a.link && <a href={a.link} class="card-link" target="_blank">Read more →</a>}
+        </div>
+      ))}
+    </div>
+  </section>
 
   <!-- MEMBERS -->
   <section id="members">
@@ -51,6 +78,36 @@ const past = sorted.filter(e => new Date(e.date + 'T00:00:00') < today).reverse(
       ))}
       <div class="card" style="display:flex;align-items:center;justify-content:center;min-height:160px;">
         <a href="https://github.com/zenpierce27/sac-ai-hub/blob/main/CONTRIBUTING.md" class="card-link" target="_blank">+ Add yourself →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="section-header">
+      <h2>Projects</h2>
+      <span>{projects.length} listed</span>
+    </div>
+    <div class="grid">
+      {projects.map(p => (
+        <div class="card">
+          <div class="card-label">
+            {p.status === 'live' ? '🟢 Live' : '🔨 In Progress'}
+          </div>
+          <h3>{p.name}</h3>
+          <p class="event-date">by {p.author}</p>
+          <p>{p.description}</p>
+          <div class="card-tags">
+            {p.tags.map(t => <span class="tag">{t}</span>)}
+          </div>
+          <div style="display:flex;gap:1rem;margin-top:0.5rem;">
+            {p.github && <a href={p.github} class="card-link" target="_blank">GitHub →</a>}
+            {p.demo && <a href={p.demo} class="card-link" target="_blank">Demo →</a>}
+          </div>
+        </div>
+      ))}
+      <div class="card" style="display:flex;align-items:center;justify-content:center;min-height:160px;">
+        <a href="https://github.com/zenpierce27/sac-ai-hub/blob/main/CONTRIBUTING.md" class="card-link" target="_blank">+ Add your project →</a>
       </div>
     </div>
   </section>
@@ -81,7 +138,6 @@ const past = sorted.filter(e => new Date(e.date + 'T00:00:00') < today).reverse(
       </div>
     </div>
 
-    <!-- PAST EVENTS -->
     {past.length > 0 && (
       <details style="margin-top:2rem;">
         <summary style="font-family:var(--font-mono);font-size:0.85rem;color:var(--text-muted);cursor:pointer;padding:0.75rem 0;border-top:1px solid var(--border);list-style:none;">
