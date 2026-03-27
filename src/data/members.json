@@ -5,5 +5,11 @@
     "role": "Founder / myupcyclehub.com",
     "bio": "Polymath entrepreneur, AI × Circular Economy × SaaS | Award-winning photojournalist turned tech founder | My resume doesn’t fit in a box",
     "tags": ["full-stack", "ai", "open-source"]
-  }
+  },
+  {
+  "name": "Ashu Gupta",
+  "github": "https://github.com/your-username",
+  "role": "Student / Developer",
+  "interests": ["AI", "Web Development", "Open Source"]
+}
 ]
