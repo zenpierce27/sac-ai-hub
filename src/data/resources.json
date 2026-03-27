@@ -23,4 +23,11 @@
     "description": "Open source collection of skills and capabilities for building with Claude.",
     "category": "tools"
   }
+  {
+  "name": "ChatGPT",
+  "type": "AI Assistant",
+  "link": "https://chat.openai.com",
+  "description": "An advanced AI assistant for coding, writing, learning, and problem-solving."
+}
 ]
+
