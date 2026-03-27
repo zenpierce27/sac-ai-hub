@@ -75,7 +75,7 @@ const sortedAnnouncements = [...announcements].sort((a, b) => new Date(b.date) -
           <div class="event-date">{formatDate(e.date)} · {e.time} · {e.location}</div>
           <h3>{e.title}</h3>
           <p>{e.description}</p>
-          {e.link && <a href={e.link} class="card-link" target="_blank">Details →</a>}
+         {e.link && e.link.length > 0 && !/^https?:\/\/[^/]+\/?$/.test(e.link) && <a href={e.link} class="card-link" target="_blank">Details →</a>}
         </div>
       ))}
       <div class="card" style="display:flex;align-items:center;justify-content:center;min-height:140px;">
@@ -95,7 +95,7 @@ const sortedAnnouncements = [...announcements].sort((a, b) => new Date(b.date) -
               <div class="event-date">{formatDate(e.date)} · {e.location}</div>
               <h3>{e.title}</h3>
               <p>{e.description}</p>
-              {e.link && <a href={e.link} class="card-link" target="_blank">Details →</a>}
+              {e.link && e.link.length > 0 && !/^https?:\/\/[^/]+\/?$/.test(e.link) && <a href={e.link} class="card-link" target="_blank">Details →</a>}
             </div>
           ))}
         </div>
