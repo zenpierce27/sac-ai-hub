@@ -8,6 +8,13 @@ function formatDate(dateStr) {
   const d = new Date(dateStr + 'T00:00:00');
   return d.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
 }
+
+const today = new Date();
+today.setHours(0, 0, 0, 0);
+
+const sorted = [...events].sort((a, b) => new Date(a.date) - new Date(b.date));
+const upcoming = sorted.filter(e => new Date(e.date + 'T00:00:00') >= today);
+const past = sorted.filter(e => new Date(e.date + 'T00:00:00') < today).reverse();
 ---
 
 <Layout title="Sac AI Hub — Sacramento AI Collective">
@@ -51,11 +58,16 @@ function formatDate(dateStr) {
   <!-- EVENTS -->
   <section id="events">
     <div class="section-header">
-      <h2>Events</h2>
-      <span>{events.length} upcoming</span>
+      <h2>Upcoming Events</h2>
+      <span>{upcoming.length} upcoming</span>
     </div>
     <div class="grid">
-      {events.map(e => (
+      {upcoming.length === 0 && (
+        <div class="card">
+          <p>No upcoming events. Know one? Add it.</p>
+        </div>
+      )}
+      {upcoming.map(e => (
         <div class="card">
           <div class="card-label">Event</div>
           <div class="event-date">{formatDate(e.date)} · {e.time} · {e.location}</div>
@@ -68,6 +80,26 @@ function formatDate(dateStr) {
         <a href="https://github.com/zenpierce27/sac-ai-hub/blob/main/CONTRIBUTING.md" class="card-link" target="_blank">+ Add an event →</a>
       </div>
     </div>
+
+    <!-- PAST EVENTS -->
+    {past.length > 0 && (
+      <details style="margin-top:2rem;">
+        <summary style="font-family:var(--font-mono);font-size:0.85rem;color:var(--text-muted);cursor:pointer;padding:0.75rem 0;border-top:1px solid var(--border);list-style:none;">
+          ▸ Past Events ({past.length})
+        </summary>
+        <div class="grid" style="margin-top:1px;">
+          {past.map(e => (
+            <div class="card" style="opacity:0.6;">
+              <div class="card-label">Past Event</div>
+              <div class="event-date">{formatDate(e.date)} · {e.location}</div>
+              <h3>{e.title}</h3>
+              <p>{e.description}</p>
+              {e.link && <a href={e.link} class="card-link" target="_blank">Details →</a>}
+            </div>
+          ))}
+        </div>
+      </details>
+    )}
   </section>
 
   <!-- RESOURCES -->
